@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions - Shadeware</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-bottom: 2px solid #dddddd;
+        }
+
+        header img {
+            height: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333333;
+            margin-left: 20px;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: #0073e6;
+        }
+
+        .banner {
+            background-image: url('acoc.png');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px #000;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .widget {
+            background-color: #ffffff;
+            border: 1px solid #dddddd;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .widget:hover {
+            transform: translateY(-10px);
+        }
+
+        .widget img {
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        .widget h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .widget p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            color: #666666;
+        }
+
+        .widget .download-btn {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .widget .download-btn:hover {
+            background-color: #005bb5;
+        }
+
+        /* Modal for the purchase widget */
+        .purchase-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .purchase-modal .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .purchase-modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .purchase-modal button {
+            background-color: #0073e6;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .purchase-modal button:hover {
+            background-color: #005bb5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ffffff;
+            color: #0073e6;
+            margin-top: 20px;
+            border-top: 2px solid #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="shade.png" alt="Shadeware Logo">
+        <nav>
+            <a href="seven.html">Home</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="about.html">About Us</a>
+            <a href="licenses.html">Licenses</a>
+        </nav>
+    </header>
+
+    <div class="banner">
+        <h1>Solutions</h1>
+    </div>
+
+    <div class="content">
+        <div class="solutions-grid">
+            <!-- Repeat for each app (24 widgets total) -->
+            <div class="widget">
+                <img src="snop.png" alt="App 1 Icon">
+                <h3>Snoopy</h3>
+                <p>Geolocation to IP & Mac extraction tool for intelligence and target discovery.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 1', 'app1.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="hel.png" alt="App 2 Icon">
+                <h3>FlokiOS</h3>
+                <p>Our flagship software.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="winlx.png" alt="App 2 Icon">
+                <h3>WinLX</h3>
+                <p>Allows for Windows software to run on FlokiOS like PowerShell.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="xs.png" alt="App 2 Icon">
+                <h3>XSNetwork</h3>
+                <p>A suite for attacking and testing networks and routers.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="minuteman2.png" alt="App 2 Icon">
+                <h3>Minuteman</h3>
+                <p>A tool for exploiting Windows 10 & 11.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="ios.png" alt="App 2 Icon">
+                <h3>iOS Analyzer</h3>
+                <p>A suite for reverse engineering and testing exploits on iOS 18.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="mint.png" alt="App 2 Icon">
+                <h3>Mint Script</h3>
+                <p>A markup language for building advanced software.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="hj2.png" alt="App 2 Icon">
+                <h3>RES-512</h3>
+                <p>Local quantum resistant encryption and hashing software from the RES-512 bit algorithm.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="res.ico" alt="App 2 Icon">
+                <h3>RES-256</h3>
+                <p>Local quantum resistant encryption and hashing software from the AES-256 bit algorithm.  </p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="lm.png" alt="App 2 Icon">
+                <h3>WinStorm</h3>
+                <p>WinStorm is an exploit tester environment for Windows 11.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="xcv.png" alt="App 2 Icon">
+                <h3>XKS CV</h3>
+                <p>A database for intelligence.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="wraith.png" alt="App 2 Icon">
+                <h3>Wraith</h3>
+                <p>A program that hides digital footprints on remote access.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="duck.png" alt="App 2 Icon">
+                <h3>Quack!</h3>
+                <p>A easy to use reverse engineering tool for advanced programs.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+            <div class="widget">
+                <img src="lxx.png" alt="App 2 Icon">
+                <h3>VSWinLX</h3>
+                <p>A branch of the WinLX application to make Visual Studio 2022 run natively on FlokiOS.</p>
+                <button class="download-btn" onclick="showPurchaseModal('App 2', 'app2.zip')">Download</button>
+            </div>
+
+
+            <!-- Continue for the remaining apps... -->
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div class="purchase-modal" id="purchaseModal">
+        <div class="modal-content">
+            <h2>Complete Your Purchase</h2>
+            <form id="purchaseForm">
+                <input type="text" id="zip" placeholder="Enter Zip Code" required>
+                <input type="text" id="card" placeholder="Credit Card Number" required>
+                <input type="text" id="expiry" placeholder="Expiry Date" required>
+                <button type="submit">Purchase</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Shadeware. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showPurchaseModal(appName, fileName) {
+            const modal = document.getElementById('purchaseModal');
+            modal.style.display = 'flex';
+
+            // When the form is submitted, simulate the purchase and download process
+            document.getElementById('purchaseForm').onsubmit = function(e) {
+                e.preventDefault();
+
+                // Close the modal
+                modal.style.display = 'none';
+
+                // Simulate the download process (start downloading the file)
+                window.location.href = fileName; // Replace with actual download path
+            };
+        }
+
+        // Close the modal if clicked outside of it
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('purchaseModal')) {
+                document.getElementById('purchaseModal').style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
